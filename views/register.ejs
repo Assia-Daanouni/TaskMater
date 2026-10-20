@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Inscription Magnifique</title>
+  <!-- Importation des polices Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    /* Réinitialisation générale */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    /* Fond en dégradé de bleu doux et apaisant */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #a8dadc, #457b9d);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    /* Conteneur central avec effet de verre et bordure dégradée */
+    .container {
+      position: relative;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      padding: 40px;
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      overflow: hidden;
+    }
+    .container::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #457b9d, #a8dadc);
+      z-index: -1;
+      border-radius: 18px;
+      opacity: 0.6;
+    }
+    /* Titre avec effet de dégradé sur le texte et une légère ombre */
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      margin-bottom: 25px;
+      background: linear-gradient(45deg, #1d3557, #457b9d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    /* Styles des champs de saisie */
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 12px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    input:focus {
+      border-color: #457b9d;
+      box-shadow: 0 0 8px rgba(69, 123, 157, 0.5);
+      outline: none;
+    }
+    /* Bouton d'inscription élégant avec effet de levée */
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      background: #457b9d;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    button:hover {
+      background: #1d3557;
+      transform: translateY(-2px);
+    }
+    button:active {
+      transform: translateY(0);
+    }
+    /* Texte et lien d'accès */
+    p {
+      margin-top: 20px;
+      font-size: 0.95rem;
+      color: #333;
+    }
+    a {
+      color: #457b9d;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    a:hover {
+      color: #1d3557;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Créer un compte</h1>
+    <form action="/register" method="POST">
+      <input type="text" name="username" placeholder="Nom d'utilisateur" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Mot de passe" required>
+      <button type="submit">S'inscrire</button>
+    </form>
+    <p>Déjà inscrit ? <a href="/login">Se connecter</a></p>
+  </div>
+</body>
+</html>

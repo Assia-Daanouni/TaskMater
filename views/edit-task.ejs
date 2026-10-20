@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modifier Tâche</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #a8dadc, #457b9d);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      position: relative;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      padding: 40px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #457b9d, #a8dadc);
+      z-index: -1;
+      border-radius: 18px;
+      opacity: 0.6;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      margin-bottom: 25px;
+      background: linear-gradient(45deg, #1d3557, #457b9d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      font-weight: 500;
+      color: #1d3557;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: #457b9d;
+      box-shadow: 0 0 8px rgba(69, 123, 157, 0.5);
+      outline: none;
+    }
+
+    button, .btn-secondary {
+      width: 100%;
+      padding: 12px;
+      margin-top: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      text-align: center;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    button {
+      background: #457b9d;
+      color: #fff;
+    }
+
+    button:hover {
+      background: #1d3557;
+      transform: translateY(-2px);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .btn-secondary {
+      background: #e0e0e0;
+      color: #333;
+    }
+
+    .btn-secondary:hover {
+      background: #bbb;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Modifier la tâche</h1>
+    <form action="/edit-task/<%= task._id %>" method="POST">
+      <label for="title">Titre de la tâche</label>
+      <input type="text" id="title" name="title" value="<%= task.title %>" required>
+      
+      <label for="description">Description</label>
+      <textarea id="description" name="description" rows="3"><%= task.description %></textarea>
+      
+      <label for="status">Statut</label>
+      <select id="status" name="status">
+        <option value="Not Started" <%= task.status === 'Not Started' ? 'selected' : '' %>>Non commencé</option>
+        <option value="In Progress" <%= task.status === 'In Progress' ? 'selected' : '' %>>En cours</option>
+        <option value="Completed" <%= task.status === 'Completed' ? 'selected' : '' %>>Terminé</option>
+      </select>
+      
+      <button type="submit">Enregistrer</button>
+      <a href="/dashboard" class="btn-secondary">Annuler</a>
+    </form>
+  </div>
+</body>
+</html>

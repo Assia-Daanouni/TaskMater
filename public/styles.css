@@ -1,0 +1,141 @@
+:root {
+  --primary: #4361ee;
+  --primary-light: #4895ef;
+  --secondary: #3f37c9;
+  --dark: #1b263b;
+  --light: #f8f9fa;
+  --gray: #6c757d;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f7fa;
+  color: var(--dark);
+}
+
+.sidebar {
+  background: linear-gradient(135deg, var(--dark), var(--primary));
+  color: white;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+
+.sidebar h2 {
+  font-weight: 600;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgba(255,255,255,0.2);
+}
+
+.nav-link {
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 8px;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+  background-color: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.stat-card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+  text-align: center;
+  padding: 20px;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-card h5 {
+  color: var(--gray);
+  font-size: 1rem;
+}
+
+.stat-card p {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0;
+}
+
+.project-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  transition: all 0.3s;
+  margin-bottom: 20px;
+  height: 100%;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.project-card .card-title {
+  color: var(--dark);
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.badge-status {
+  font-size: 0.75rem;
+  padding: 5px 10px;
+  border-radius: 50px;
+}
+
+.btn-add-task {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+}
+
+.btn-add-task:hover {
+  background: var(--secondary);
+}
+
+.task-item {
+  border-left: 3px solid var(--primary);
+  margin-bottom: 8px;
+  padding-left: 10px;
+}
+
+/* Styles spécifiques pour les modals de tâches */
+.task-modal .task-item {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #f8f9fa;
+}
+
+.task-modal .task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-modal .task-title {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.task-modal .task-date {
+  font-size: 0.8rem;
+  color: var(--gray);
+}
+
+.task-modal .task-description {
+  margin-top: 5px;
+  color: var(--gray);
+}
